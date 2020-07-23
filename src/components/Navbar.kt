@@ -16,7 +16,9 @@ import styled.*
 
 val Navbar = functionalComponent<RProps> {
     styledNav {
-        css { +ComponentStyles.navWrapper }
+        css {
+            classes.add("navbar navbar-expand-sm  navbar-dark px-sm-5")
+        }
         routeLink(to = "/") {
             callPhoneLogo()
         }

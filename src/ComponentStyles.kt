@@ -9,16 +9,6 @@ import styled.StyledComponents.css
 import styled.css
 
 object ComponentStyles : StyleSheet("ComponentStyles", isStatic = true) {
-    val navWrapper by css {
-        styleName.add("navbar")
-        allowClasses
-        classes.add("navbar")
-        classes.add("navbar-expand-sm")
-        classes.add("bg-primary")
-        classes.add("navbar-dark")
-        classes.add("px-sm-5")
-        backgroundColor = Color(Colors.mainBlue)
-    }
 
     object Colors {
         val mainBlue = "#2a2a72"
