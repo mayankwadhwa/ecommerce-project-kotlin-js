@@ -1,18 +1,17 @@
 package components
 
 import models.Product
-import react.RProps
-import react.children
-import react.createContext
-import react.functionalComponent
+import react.*
 
 @JsModule("src/data.js")
 external val data: dynamic
 
 
-val productContext = createContext("Hello From Context")
-val ProductProvider = functionalComponent<RProps> { props ->
-    productContext.Provider {
+val productContext = createContext("")
+
+val ProductProvider = functionalComponent<RProps> {props ->
+    productContext.Provider{
+        this.attrs.value = "Hello World"
         props.children()
     }
 }

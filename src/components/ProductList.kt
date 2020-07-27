@@ -3,9 +3,7 @@ package components
 import models.Product
 import react.*
 import react.dom.div
-import react.dom.h1
 import react.dom.h3
-import react.dom.li
 
 
 val ProductList = functionalComponent<RProps> {
@@ -20,8 +18,10 @@ val ProductList = functionalComponent<RProps> {
                     title = "products"
                 }
                 div(classes = "row") {
-                    productConsumer { string ->
-                        h3 { +string }
+                    productConsumer { s: String ->
+                        h3 {
+                            +s
+                        }
                     }
                 }
             }
