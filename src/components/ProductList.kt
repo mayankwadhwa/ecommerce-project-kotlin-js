@@ -1,5 +1,6 @@
 package components
 
+import kotlinext.js.asJsObject
 import models.Product
 import react.*
 import react.dom.div
@@ -8,9 +9,7 @@ import react.dom.h3
 
 val ProductList = functionalComponent<RProps> {
 //    val (products, updateProducts) = useState(data.storeProducts)
-    val storeProducts = data.storeProducts[0].unsafeCast<Product>()
     Fragment {
-        println("products: ${storeProducts.company}")
         div(classes = "py-5") {
             div(classes = "container") {
                 title {
@@ -18,9 +17,11 @@ val ProductList = functionalComponent<RProps> {
                     title = "products"
                 }
                 div(classes = "row") {
-                    productConsumer { s: String ->
-                        h3 {
-                            +s
+                    productConsumer { data: List<Any> ->
+                        data[2] as  { product ->
+                            h3 {
+                                +product.title
+                            }
                         }
                     }
                 }
