@@ -34,7 +34,7 @@ val Navbar = functionalComponent<RProps> {
         routeLink(to = "/cart", className = "ml-auto") {
             styledButton {
                 css { +ComponentStyles.buttonContainer }
-                i(classes = "fas fa-cart-plus") {
+                i(classes = "fa fa-cart-plus") {
                     +"My Cart"
                 }
             }

@@ -38,4 +38,7 @@ object ComponentStyles : StyleSheet("ComponentStyles", isStatic = true) {
         }
     }
 
+    val productWrapper by css{
+    }
+
 }
