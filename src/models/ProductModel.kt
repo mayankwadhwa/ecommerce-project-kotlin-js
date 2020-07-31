@@ -1,6 +1,6 @@
 package models
 
-data class Product(
+data class ProductModel(
         val id: Int = 0,
         val title: String = "",
         val img: String = "",

@@ -1,8 +1,7 @@
 package components
 
-import models.Product
+import models.ProductModel
 import react.*
-import react.dom.map
 
 @JsModule("src/data.js")
 external val data: dynamic
@@ -12,36 +11,45 @@ external val data: dynamic
 
 val productContext = createContext<Map<String, Any>>()
 
-val ProductProvider = functionalComponent<RProps> { props ->
+interface ContextState : RState {
+    var storeProducts: List<ProductModel>
+    var detailProduct: ProductModel
+}
 
-    val handleDetail = {
+class ProductProvider : RComponent<RProps, ContextState>() {
+
+    private val handleDetail = {
         console.log("Hello From Detail")
     }
 
-    val addToCart = {
+    private val addToCart = {
         console.log("Hello From Add To Cart")
     }
 
-    val (storeProducts, updateStoreProducts) = useState<List<Product>>(emptyList())
-    val (detailProduct, updateDetailProduct) = useState(Product())
-    useEffect(emptyList()) {
-        val tempStoreProducts = mutableListOf<Product>()
+    override fun componentDidMount() {
+        val tempStoreProducts = mutableListOf<ProductModel>()
         for (x in 0 until data.storeProducts.length as Int) {
-            tempStoreProducts.add(data.storeProducts[x].unsafeCast<Product>())
+            tempStoreProducts.add(data.storeProducts[x].unsafeCast<ProductModel>())
         }
-        updateStoreProducts(tempStoreProducts)
-        val tempDetailProduct = data.detailProduct.unsafeCast<Product>()
-        updateDetailProduct(tempDetailProduct)
+        val tempDetailProduct = data.detailProduct.unsafeCast<ProductModel>()
+        setState {
+            storeProducts = tempStoreProducts
+            detailProduct = tempDetailProduct
+        }
+
     }
 
-    productContext.Provider {
-        this.attrs.value = mapOf(
-                "handleDetail" to handleDetail,
-                "addToCart" to addToCart,
-                "storeProducts" to storeProducts,
-                "detailProduct" to detailProduct
-        )
-        props.children()
+
+    override fun RBuilder.render() {
+        productContext.Provider {
+            this.attrs.value = mapOf(
+                    "handleDetail" to handleDetail,
+                    "addToCart" to addToCart,
+                    "storeProducts" to state.storeProducts,
+                    "detailProduct" to state.detailProduct
+            )
+            props.children()
+        }
     }
 }
 

@@ -1,10 +1,8 @@
 package components
 
-import kotlinext.js.asJsObject
-import models.Product
+import models.ProductModel
 import react.*
 import react.dom.div
-import react.dom.h3
 
 
 val ProductList = functionalComponent<RProps> {
@@ -17,7 +15,8 @@ val ProductList = functionalComponent<RProps> {
                 }
                 div(classes = "row") {
                     productConsumer { data: Map<String,Any> ->
-                        (data["storeProducts"] as List<Product>).forEach { product ->
+                        println("Data $data")
+                        (data["storeProducts"] as? List<ProductModel>)?.forEach { product ->
                             product{
                                 key = product.id
                                 this.product = product

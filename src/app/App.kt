@@ -8,7 +8,7 @@ import react.router.dom.switch
 
 class App : RComponent<RProps, RState>() {
     override fun RBuilder.render() {
-        child(ProductProvider) {
+        child(ProductProvider::class) {
             hashRouter {
                 Fragment {
                     navBar()
