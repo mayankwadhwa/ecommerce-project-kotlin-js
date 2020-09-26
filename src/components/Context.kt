@@ -22,8 +22,8 @@ class ProductProvider : RComponent<RProps, ContextState>() {
         console.log("Hello From Detail")
     }
 
-    private val addToCart = {
-        console.log("Hello From Add To Cart")
+    private val addToCart: (Int) -> Unit = { id ->
+        console.log("Hello From Add To Cart.id is $id")
     }
 
     override fun componentDidMount() {

@@ -8,6 +8,6 @@ data class ProductModel(
         val company: String = "",
         val info: String = "",
         val inCart: Boolean = false,
-        val count: String = "",
-        val total: String = ""
+        val count: Int = 0,
+        val total: Int = 0
 )

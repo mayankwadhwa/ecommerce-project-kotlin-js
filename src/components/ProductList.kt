@@ -15,7 +15,6 @@ val ProductList = functionalComponent<RProps> {
                 }
                 div(classes = "row") {
                     productConsumer { data: Map<String,Any> ->
-                        println("Data $data")
                         (data["storeProducts"] as? List<ProductModel>)?.forEach { product ->
                             product{
                                 key = product.id
