@@ -38,7 +38,17 @@ object ComponentStyles : StyleSheet("ComponentStyles", isStatic = true) {
         }
     }
 
-    val productWrapper by css{
+    val modalContainer by css{
+        position = Position.fixed
+        top = 0.px
+        left = 0.px
+        right = 0.px
+        bottom = 0.px
+        background = "rgba(0,0,0,0.3)"
+        display = Display.flex
+        alignItems = Align.center
+        justifyContent = JustifyContent.center
     }
+
 
 }

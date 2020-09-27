@@ -14,16 +14,51 @@ val productContext = createContext<Map<String, Any>>()
 interface ContextState : RState {
     var storeProducts: List<ProductModel>
     var detailProduct: ProductModel
+    var cartProducts: List<ProductModel>
+    var modalOpen: Boolean
+    var modalProduct: ProductModel
 }
 
 class ProductProvider : RComponent<RProps, ContextState>() {
 
-    private val handleDetail = {
-        console.log("Hello From Detail")
+    private val handleDetail: (Int) -> Unit = { id ->
+        val item = getItem(id)
+        setState {
+            detailProduct = item
+        }
+    }
+
+    private val getItem: ((Int) -> ProductModel) = { id ->
+        state.storeProducts.first { it.id == id }
     }
 
     private val addToCart: (Int) -> Unit = { id ->
-        console.log("Hello From Add To Cart.id is $id")
+        val tempProducts = state.storeProducts
+        val index = tempProducts.indexOf(getItem(id))
+        val product = tempProducts[index]
+        product.inCart = true
+        product.count = 1
+        val price = product.price
+        product.total = price
+        setState {
+            storeProducts = tempProducts
+            cartProducts += product
+        }
+    }
+
+    private val openModal: (Int) -> Unit = { id ->
+        val product = getItem(id)
+        setState {
+            modalProduct = product
+            modalOpen = true
+        }
+    }
+
+
+    private val closeModal: () -> Unit = {
+        setState {
+            modalOpen = false
+        }
     }
 
     override fun componentDidMount() {
@@ -35,6 +70,9 @@ class ProductProvider : RComponent<RProps, ContextState>() {
         setState {
             storeProducts = tempStoreProducts
             detailProduct = tempDetailProduct
+            cartProducts = emptyList()
+            modalOpen = false
+            modalProduct = tempDetailProduct
         }
 
     }
@@ -46,7 +84,11 @@ class ProductProvider : RComponent<RProps, ContextState>() {
                     "handleDetail" to handleDetail,
                     "addToCart" to addToCart,
                     "storeProducts" to state.storeProducts,
-                    "detailProduct" to state.detailProduct
+                    "detailProduct" to state.detailProduct,
+                    "modalProduct" to state.modalProduct,
+                    "modalOpen" to state.modalOpen,
+                    "openModal" to openModal,
+                    "closeModal" to closeModal
             )
             props.children()
         }

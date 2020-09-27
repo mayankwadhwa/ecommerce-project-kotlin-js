@@ -19,24 +19,31 @@ interface ProductProps : RProps {
 val Product = functionalComponent<ProductProps> { props ->
     styledDiv {
         css {
-            +ComponentStyles.productWrapper
             classes = mutableListOf("col-9 mx-auto col-md-6 col-lg-3 my-3")
         }
         div(classes = "card") {
-            div(classes = "img-container p-5") {
-                attrs.onClickFunction = {
-                    println("You Clicked Me")
-                }
-                routeLink(to = "/details") {
-                    img(src = props.product.img, alt = "product", classes = "card-img-top") {}
-                }
-                button(classes = "cart-btn") {
-                    attrs.disabled = props.product.inCart
-                    attrs.onClickFunction = { println("Added to the cart") }
-                    if (props.product.inCart) {
-                        p(classes = "text-capitalize mb-0") { +"in cart" }
-                    } else {
-                        i(classes = "fa fa-cart-plus") {}
+            productConsumer { map: Map<String, Any> ->
+                div(classes = "img-container p-5") {
+                    attrs.onClickFunction = {
+                        val handleDetail = map["handleDetail"].unsafeCast<(Int) -> Unit>()
+                        handleDetail(props.product.id)
+                    }
+                    routeLink(to = "/details") {
+                        img(src = props.product.img, alt = "product", classes = "card-img-top") {}
+                    }
+                    button(classes = "cart-btn") {
+                        attrs.disabled = props.product.inCart
+                        attrs.onClickFunction = {
+                            val addToCart = map["addToCart"].unsafeCast<(Int) -> Unit>()
+                            val openModal = map["openModal"].unsafeCast<(Int) -> Unit>()
+                            addToCart(props.product.id)
+                            openModal(props.product.id)
+                        }
+                        if (props.product.inCart) {
+                            p(classes = "text-capitalize mb-0") { +"in cart" }
+                        } else {
+                            i(classes = "fa fa-cart-plus") {}
+                        }
                     }
                 }
             }

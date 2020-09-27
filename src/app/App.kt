@@ -18,6 +18,7 @@ class App : RComponent<RProps, RState>() {
                         route(path = "/cart") { cart() }
                         route(path = "") { default() }
                     }
+                    modal()
                 }
             }
 
