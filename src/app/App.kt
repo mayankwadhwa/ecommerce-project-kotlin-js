@@ -1,6 +1,7 @@
 package app
 
 import components.*
+import components.cart.cart
 import react.*
 import react.router.dom.hashRouter
 import react.router.dom.route

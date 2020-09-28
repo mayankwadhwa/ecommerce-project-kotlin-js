@@ -17,6 +17,8 @@ interface ContextState : RState {
     var cartProducts: List<ProductModel>
     var modalOpen: Boolean
     var modalProduct: ProductModel
+    var cartSubTotal: Int
+    var cartTax: Int
 }
 
 class ProductProvider : RComponent<RProps, ContextState>() {
@@ -61,6 +63,22 @@ class ProductProvider : RComponent<RProps, ContextState>() {
         }
     }
 
+    private val increment: (Int) -> Unit = { id ->
+        println("Increment Method")
+    }
+
+    private val decrement: (Int) -> Unit = { id ->
+        println("Decrement  Method")
+    }
+
+    private val removeItem: (Int) -> Unit = { id ->
+        println("Item Removed")
+    }
+
+    private val clearCart: () -> Unit = {
+        println("Item Removed")
+    }
+
     override fun componentDidMount() {
         val tempStoreProducts = mutableListOf<ProductModel>()
         for (x in 0 until data.storeProducts.length as Int) {
@@ -70,9 +88,11 @@ class ProductProvider : RComponent<RProps, ContextState>() {
         setState {
             storeProducts = tempStoreProducts
             detailProduct = tempDetailProduct
-            cartProducts = emptyList()
+            cartProducts = tempStoreProducts
             modalOpen = false
             modalProduct = tempDetailProduct
+            cartSubTotal = 0
+            cartTax = 0
         }
 
     }
@@ -86,9 +106,14 @@ class ProductProvider : RComponent<RProps, ContextState>() {
                     "storeProducts" to state.storeProducts,
                     "detailProduct" to state.detailProduct,
                     "modalProduct" to state.modalProduct,
+                    "cartProducts" to state.cartProducts,
                     "modalOpen" to state.modalOpen,
                     "openModal" to openModal,
-                    "closeModal" to closeModal
+                    "closeModal" to closeModal,
+                    "increment" to increment,
+                    "decrement" to decrement,
+                    "removeItem" to removeItem,
+                    "clearCart" to clearCart
             )
             props.children()
         }
