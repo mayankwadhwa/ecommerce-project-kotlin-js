@@ -51,7 +51,7 @@ val Product = functionalComponent<ProductProps> { props ->
             div(classes = "card-footer d-flex justify-content-between") {
                 p(classes = "align-self-center mb-0") { +props.product.title }
                 h5(classes = "text-blue font-italic mb-0") {
-                    span(classes = "mr-1") { +"$" }
+                    span(classes = "mr-1") { +"\u20B9" }
                     attrs.text(props.product.price)
                 }
             }

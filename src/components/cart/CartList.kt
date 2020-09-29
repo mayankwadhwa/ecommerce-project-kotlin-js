@@ -12,7 +12,7 @@ val CartList = functionalComponent<CartListProps> { props ->
     val cartProducts = props.contextValue["cartProducts"].unsafeCast<List<ProductModel>>()
     val increment = props.contextValue["increment"].unsafeCast<(Int) -> Unit>()
     val decrement = props.contextValue["decrement"].unsafeCast<(Int) -> Unit>()
-    val removeItem = props.contextValue["remove"].unsafeCast<(Int) -> Unit>()
+    val removeItem = props.contextValue["removeItem"].unsafeCast<(Int) -> Unit>()
 
     div(classes = "container-fluid") {
         cartProducts.forEach { item ->

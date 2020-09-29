@@ -2,6 +2,7 @@ package components
 
 import models.ProductModel
 import react.*
+import kotlin.math.round
 
 @JsModule("src/data.js")
 external val data: dynamic
@@ -17,8 +18,9 @@ interface ContextState : RState {
     var cartProducts: List<ProductModel>
     var modalOpen: Boolean
     var modalProduct: ProductModel
-    var cartSubTotal: Int
-    var cartTax: Int
+    var cartSubTotal: Double
+    var cartTax: Double
+    var cartTotal: Double
 }
 
 class ProductProvider : RComponent<RProps, ContextState>() {
@@ -46,6 +48,7 @@ class ProductProvider : RComponent<RProps, ContextState>() {
             storeProducts = tempProducts
             cartProducts += product
         }
+        addTotals()
     }
 
     private val openModal: (Int) -> Unit = { id ->
@@ -76,25 +79,44 @@ class ProductProvider : RComponent<RProps, ContextState>() {
     }
 
     private val clearCart: () -> Unit = {
-        println("Item Removed")
+        setState { cartProducts = emptyList() }
+        setProducts()
+    }
+
+    private val addTotals: () -> Unit = {
+        var subTotal = 0.0
+        state.cartProducts.forEach { product -> subTotal += product.total }
+        val tempTax = subTotal * 0.1
+        val total = subTotal + tempTax
+        setState {
+            cartSubTotal = subTotal
+            cartTax = tempTax
+            cartTotal = total
+        }
     }
 
     override fun componentDidMount() {
+        val tempDetailProduct = data.detailProduct.unsafeCast<ProductModel>()
+        setState {
+            detailProduct = tempDetailProduct
+            cartProducts = emptyList()
+            modalOpen = false
+            modalProduct = tempDetailProduct
+            cartSubTotal = 0.0
+            cartTax = 0.0
+            cartTotal = 0.0
+        }
+        setProducts()
+    }
+
+    private fun setProducts(){
         val tempStoreProducts = mutableListOf<ProductModel>()
         for (x in 0 until data.storeProducts.length as Int) {
             tempStoreProducts.add(data.storeProducts[x].unsafeCast<ProductModel>())
         }
-        val tempDetailProduct = data.detailProduct.unsafeCast<ProductModel>()
         setState {
             storeProducts = tempStoreProducts
-            detailProduct = tempDetailProduct
-            cartProducts = tempStoreProducts
-            modalOpen = false
-            modalProduct = tempDetailProduct
-            cartSubTotal = 0
-            cartTax = 0
         }
-
     }
 
 
@@ -113,7 +135,10 @@ class ProductProvider : RComponent<RProps, ContextState>() {
                     "increment" to increment,
                     "decrement" to decrement,
                     "removeItem" to removeItem,
-                    "clearCart" to clearCart
+                    "clearCart" to clearCart,
+                    "cartSubtotal" to state.cartSubTotal,
+                    "cartTax" to state.cartTax,
+                    "cartTotal" to state.cartTotal
             )
             props.children()
         }

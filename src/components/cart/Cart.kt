@@ -10,6 +10,10 @@ val Cart = functionalComponent<RProps> {
     section {
         productConsumer { map ->
             val cartProducts = map["cartProducts"].unsafeCast<List<ProductModel>>()
+            val cartSubTotal = map["cartSubtotal"].unsafeCast<Int>()
+            val cartTax = map["cartTax"].unsafeCast<Int>()
+            val cartTotal = map["cartTotal"].unsafeCast<Int>()
+            val clearCart = map["clearCart"].unsafeCast<() -> Unit>()
 
             if (!cartProducts.isNullOrEmpty()) {
                 title {
@@ -17,9 +21,14 @@ val Cart = functionalComponent<RProps> {
                     title = "cart"
                 }
                 cartColumns()
-                cartList{ contextValue = map }
-            }
-            else
+                cartList { contextValue = map }
+                cartTotal {
+                    this.cartSubtotal = cartSubTotal
+                    this.cartTax = cartTax
+                    this.cartTotal = cartTotal
+                    this.clearCart = clearCart
+                }
+            } else
                 emptyCart()
 
         }

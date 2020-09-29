@@ -40,7 +40,7 @@ val Details = functionalComponent<RProps> {
                             h4(classes = "text-blue") {
                                 strong {
                                     +"Price : "
-                                    span { +"$${product.price}" }
+                                    span { +"\u20B9${product.price}" }
                                 }
                             }
                             p(classes = "text-capitalize font-weight-bold mt-3 mb-0") {

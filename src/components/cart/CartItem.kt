@@ -51,7 +51,7 @@ val CartItem = functionalComponent<CartItemProps> { props ->
                 }
                 span("btn btn-black mx-1") {
                     attrs.onClickFunction = {
-                        props.increment(props.item.id)
+                        props.removeItem(props.item.id)
                     }
                     +"+"
                 }
@@ -67,7 +67,7 @@ val CartItem = functionalComponent<CartItemProps> { props ->
             }
         }
         div("col-10 mx-auto col-lg-2") {
-            strong { +"item total : $ ${props.item.total}" }
+            strong { +"item total : \u20B9 ${props.item.total}" }
         }
 
     }
