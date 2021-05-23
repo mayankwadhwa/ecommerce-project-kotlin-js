@@ -1,7 +1,0 @@
-builtins_platform=JS
-unique_name=io.ktor\:ktor-http
-ir_version=1.0.0
-compiler_version=1.4.0
-depends=io.ktor\:ktor-utils io.ktor\:ktor-io org.jetbrains.kotlinx\:kotlinx-coroutines-core org.jetbrains.kotlinx\:atomicfu kotlin
-abi_version=1.4.1
-metadata_version=1.4.0
