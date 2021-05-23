@@ -1,0 +1,11 @@
+{
+  "name": "ktor-ktor-client-serialization-jsLegacy",
+  "version": "1.5.4",
+  "customFields": {},
+  "main": "ktor-ktor-client-serialization-jsLegacy.js",
+  "devDependencies": {},
+  "dependencies": {},
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}

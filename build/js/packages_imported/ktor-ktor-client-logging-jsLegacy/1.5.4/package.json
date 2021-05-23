@@ -1,0 +1,11 @@
+{
+  "name": "ktor-ktor-client-logging-jsLegacy",
+  "version": "1.5.4",
+  "customFields": {},
+  "main": "ktor-ktor-client-logging-jsLegacy.js",
+  "devDependencies": {},
+  "dependencies": {},
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}

@@ -1,0 +1,12 @@
+{
+  "main": "kotlin/ktor-ktor-client-json-jsIr.js",
+  "devDependencies": {},
+  "dependencies": {
+    "text-encoding": "0.7.0"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": [],
+  "name": "ktor-ktor-client-json-jsIr",
+  "version": "1.4.0"
+}
