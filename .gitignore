@@ -1,0 +1,4 @@
+/build/
+/.gradle
+/shared/build
+/web/build

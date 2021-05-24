@@ -1,9 +1,8 @@
 import io.ktor.client.*
 import io.ktor.client.features.*
-import io.ktor.client.features.json.*
-import io.ktor.client.features.json.serializer.*
 import io.ktor.client.features.logging.*
 import io.ktor.client.request.*
+import kotlinx.serialization.json.Json
 
 
 object KtorApi {
@@ -11,9 +10,9 @@ object KtorApi {
         install(HttpTimeout){
             requestTimeoutMillis = 3000
         }
-        install(JsonFeature){
-            serializer = KotlinxSerializer()
-        }
+//        install(JsonFeature){
+//            serializer = KotlinxSerializer()
+//        }
         install(Logging) {
             logger = object : Logger {
                 override fun log(message: String) {
@@ -25,7 +24,8 @@ object KtorApi {
     }
 
     suspend fun getDatabase(): SheetResponse {
-        return client.get(urlString = "https://sheets.googleapis.com/v4/spreadsheets/1m_Q3fTugs_m6_WiltWMBFYQnnRcHZPp4mNLpHJIaK94/values/A1%3AH98?majorDimension=ROWS&key=AIzaSyDdZ8ob8KRuVvTLGauSB5jV2Nh7Y8FaXlA")
+        val result = client.get<String>(urlString = "https://sheets.googleapis.com/v4/spreadsheets/1m_Q3fTugs_m6_WiltWMBFYQnnRcHZPp4mNLpHJIaK94/values/A1%3AI98?majorDimension=ROWS&key=AIzaSyDdZ8ob8KRuVvTLGauSB5jV2Nh7Y8FaXlA")
+        return Json.decodeFromString(SheetResponse.serializer(), result)
     }
 
 }

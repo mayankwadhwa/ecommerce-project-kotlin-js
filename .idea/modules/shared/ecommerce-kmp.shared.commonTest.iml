@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.system.module.type="sourceSet" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../shared/src/commonTest">
+      <sourceFolder url="file://$MODULE_DIR$/../../../shared/src/commonTest/kotlin" type="kotlin-test" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../shared/src/commonTest/resources" type="kotlin-test-resource" />
+    </content>
+    <orderEntry type="jdk" jdkName="Kotlin SDK" jdkType="KotlinSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="ecommerce-kmp.shared.commonMain" scope="TEST" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-client-serialization-metadata:commonMain:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.4.21" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-client-json-metadata:commonMain:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.4.21" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-test-common:1.4.21" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-client-logging-metadata:commonMain:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-test-annotations-common:1.4.21" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-client-core-metadata:commonMain:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-client-serialization-metadata:all:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-serialization-json-metadata:commonMain:1.0.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-client-json-metadata:all:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-metadata:commonMain:1.4.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-client-logging-metadata:all:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-client-core-metadata:all:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-serialization-core-metadata:commonMain:1.0.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-http-cio-metadata:commonMain:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-serialization-json-metadata:all:1.0.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-http-metadata:commonMain:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-metadata:all:1.4.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-utils-metadata:commonMain:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:atomicfu-common:all:0.14.4" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-io-metadata:commonMain:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-serialization-core-metadata:all:1.0.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-http-cio-metadata:all:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-http-metadata:all:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-utils-metadata:all:1.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.ktor:ktor-io-metadata:all:1.4.0" level="project" />
+  </component>
+  <component name="TestModuleProperties" production-module="ecommerce-kmp.shared.commonMain" />
+</module>

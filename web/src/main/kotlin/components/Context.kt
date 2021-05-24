@@ -6,10 +6,6 @@ import models.ProductModel
 import react.*
 import kotlin.math.round
 
-@JsNonModule
-@JsModule("/Users/mayankwadhwa/IdeaProjects/ecommerce-project-kotlin-js/src/main/kotlin/data.js")
-external val data: dynamic
-
 
 //val detailsProducts = data.detailProduct.unsafeCast<List<Product>>()
 
@@ -99,11 +95,7 @@ class ProductProvider : RComponent<RProps, ContextState>() {
     }
 
     override fun componentDidMount() {
-        GlobalScope.launch {
-            val database = KtorApi.getDatabase()
-            console.log(database.values)
-        }
-        val tempDetailProduct = data.detailProduct.unsafeCast<ProductModel>()
+        val tempDetailProduct = ProductModel(0,"test", "test", "test", "Test",1,2,"test")
         setState {
             detailProduct = tempDetailProduct
             cartProducts = emptyList()
@@ -117,12 +109,17 @@ class ProductProvider : RComponent<RProps, ContextState>() {
     }
 
     private fun setProducts(){
-        val tempStoreProducts = mutableListOf<ProductModel>()
-        for (x in 0 until data.storeProducts.length as Int) {
-            tempStoreProducts.add(data.storeProducts[x].unsafeCast<ProductModel>())
-        }
-        setState {
-            storeProducts = tempStoreProducts
+        GlobalScope.launch {
+            val tempStoreProducts = mutableListOf<ProductModel>()
+            val sheetResponse = KtorApi.getDatabase()
+            sheetResponse.values.drop(1).forEach { row ->
+                tempStoreProducts.add(ProductModel(row[0].toIntOrNull() ?: 0, row[1], row[2], row[3], row[4], row[5].toIntOrNull() ?: 0,
+                    row[6].toIntOrNull() ?: 0, row[7], row[8]))
+            }
+            console.log(tempStoreProducts)
+            setState {
+                storeProducts = tempStoreProducts
+            }
         }
     }
 

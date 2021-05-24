@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.system.module.type="sourceSet" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/../../build/js/packages/ecommerce-kmp/kotlin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../build/externals/ecommerce-kmp/src" />
+    <content url="file://$MODULE_DIR$/../../src/jsMain">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/jsMain/kotlin" type="kotlin-source" />
+      <sourceFolder url="file://$MODULE_DIR$/../../src/jsMain/resources" type="kotlin-resource" />
+    </content>
+    <orderEntry type="jdk" jdkName="Kotlin SDK" jdkType="KotlinSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="ecommerce-kmp.commonMain" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-client-js:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:kotlin-css:1.0.0-pre.144-kotlin-1.4.21" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:kotlin-styled:5.2.0-pre.144-kotlin-1.4.21" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-client-js-metadata:commonMain:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:kotlin-react-dom:17.0.1-pre.144-kotlin-1.4.21" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:kotlin-react-router-dom:5.2.0-pre.144-kotlin-1.4.21" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-client-serialization-metadata:all:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:kotlin-react:17.0.1-pre.144-kotlin-1.4.21" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-client-json-metadata:all:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.4.2" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-client-logging-metadata:all:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:kotlin-extensions:1.0.1-pre.144-kotlin-1.4.21" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-client-core-metadata:all:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.4.21" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-html-js:0.7.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-serialization-json-metadata:all:1.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-client-serialization-js:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-client-json-js:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-html-common:0.7.2" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-client-logging-js:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-serialization-core-metadata:all:1.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-client-core-js:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-http-cio-metadata:all:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-http-metadata:all:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.4.21" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-utils-metadata:all:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:atomicfu-js:0.14.4" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-io-metadata:all:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-serialization-json-js:1.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:kotlin-css-js:1.0.0-pre.144-kotlin-1.4.21" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-serialization-core-js:1.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-http-cio-js:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-http-js:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-utils-js:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: io.ktor:ktor-io-js:1.4.0" level="project" />
+  </component>
+</module>
