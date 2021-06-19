@@ -33,6 +33,7 @@ dependencies {
     implementation("org.jetbrains:kotlin-react:17.0.1-$kotlinWrappersSuffix")
     implementation("org.jetbrains:kotlin-react-dom:17.0.1-$kotlinWrappersSuffix")
     implementation("org.jetbrains:kotlin-styled:5.2.0-$kotlinWrappersSuffix")
+    implementation("com.ccfraser.muirwik:muirwik-components:0.6.0")
     implementation("org.jetbrains:kotlin-extensions:1.0.1-$kotlinWrappersSuffix")
     implementation("org.jetbrains:kotlin-css:1.0.0-$kotlinWrappersSuffix")
     implementation("org.jetbrains:kotlin-react-router-dom:$reactRouterDomWrappersSuffix")

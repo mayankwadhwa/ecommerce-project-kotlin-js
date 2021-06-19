@@ -1,6 +1,10 @@
 package components
 
 import ComponentStyles
+import com.ccfraser.muirwik.components.*
+import com.ccfraser.muirwik.components.button.mButton
+import com.ccfraser.muirwik.components.button.mIconButton
+import kotlinx.css.*
 import react.RBuilder
 import react.RProps
 import react.child
@@ -11,33 +15,32 @@ import react.functionalComponent
 import react.router.dom.routeLink
 import styled.css
 import styled.styledButton
+import styled.styledDiv
 import styled.styledNav
 
 val Navbar = functionalComponent<RProps> {
-    styledNav {
-        css {
-            classes.add("navbar navbar-expand-sm  navbar-dark px-sm-5")
-        }
-        routeLink(to = "/") {
-        }
 
-        ul(classes = "navbar-nav align-items-center") {
-            li(classes = "nav-items ml-5") {
-                routeLink(to = "/", className = "nav-link") {
-                    +"products"
+    styledDiv {
+        css { flexGrow = 1.0; }
+        val loggedIn = false
+        mAppBar(position = MAppBarPosition.static) {
+            mToolbar {
+                routeLink(to = "/") {
+                    mIconButton("menu", color = MColor.inherit) { css { marginLeft = -12.px; marginRight = 20.px }}
+                }
+                mTypography("Title", variant = MTypographyVariant.h6, color = MTypographyColor.inherit) {
+                    css { flexGrow = 1.0 }
+                }
+                if (loggedIn) {
+                    mIconButton ("account_circle", color = MColor.inherit )
+//                            mMenu(true, anchorEl = ) {  }
+                } else {
+                    routeLink(to = "/cart", className = "ml-auto") {
+                        mButton("Login", color = MColor.inherit)
+                    }
                 }
             }
         }
-
-        routeLink(to = "/cart", className = "ml-auto") {
-            styledButton {
-                css { +ComponentStyles.buttonContainer }
-                i(classes = "fa fa-cart-plus") {
-                    +"My Cart"
-                }
-            }
-        }
-
     }
 }
 

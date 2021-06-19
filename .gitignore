@@ -2,3 +2,5 @@
 /web/build
 /androidApp/build
 /shared/build
+/.gradle
+/.idea
