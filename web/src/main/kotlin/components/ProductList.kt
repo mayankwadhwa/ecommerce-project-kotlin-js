@@ -30,6 +30,5 @@ val ProductList = functionalComponent<RProps> {
 
 fun RBuilder.productList(): ReactElement {
     return child(ProductList) {
-
     }
 }

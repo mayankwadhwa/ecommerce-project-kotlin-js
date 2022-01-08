@@ -1,6 +1,8 @@
 package components
 
 import ComponentStyles
+import kotlinx.css.map
+import models.ProductModel
 import react.RBuilder
 import react.RProps
 import react.child
@@ -14,30 +16,35 @@ import styled.styledButton
 import styled.styledNav
 
 val Navbar = functionalComponent<RProps> {
-    styledNav {
-        css {
-            classes.add("navbar navbar-expand-sm  navbar-dark px-sm-5")
-        }
-        routeLink(to = "/") {
-        }
+    productConsumer { contextData: Map<String, Any> ->
 
-        ul(classes = "navbar-nav align-items-center") {
-            li(classes = "nav-items ml-5") {
-                routeLink(to = "/", className = "nav-link") {
-                    +"products"
+        styledNav {
+            css {
+                classes.add("navbar navbar-expand-sm  navbar-dark px-sm-5")
+            }
+            routeLink(to = "/") {
+            }
+            ul(classes = "navbar-nav align-items-center") {
+                (contextData["storeProducts"] as? List<ProductModel>)?.map { it.category }?.distinct()?.forEach { category ->
+                    li(classes = "nav-items ml-5") {
+                        routeLink(to = "/", className = "nav-link") {
+                            +category
+                        }
+                    }
                 }
             }
-        }
 
-        routeLink(to = "/cart", className = "ml-auto") {
-            styledButton {
-                css { +ComponentStyles.buttonContainer }
-                i(classes = "fa fa-cart-plus") {
-                    +"My Cart"
+
+            routeLink(to = "/cart", className = "ml-auto") {
+                styledButton {
+                    css { +ComponentStyles.buttonContainer }
+                    i(classes = "fa fa-cart-plus") {
+                        +"My Cart"
+                    }
                 }
             }
-        }
 
+        }
     }
 }
 
